@@ -1,3 +1,14 @@
+# This is a challenge for a job application @Hubbi
+
+## The challenge
+
+Create a simple React application that fetches data from an API and displays it. The application should have the following features:
+
+- A list of items fetched from the API
+- Tailwind CSS for styling
+- Authentication using JWT
+- Access to the Ships API should be restricted to authenticated users
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -17,12 +28,12 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
