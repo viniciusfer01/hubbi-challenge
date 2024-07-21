@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 type Character = {
   name: string;
@@ -52,37 +51,31 @@ const Characters = () => {
   };
 
   return (
-    <>
-      <div className="App">
-        <header className="App-header">
-          <Link to="/">Home</Link>
-          <Link to="/ships">Ships</Link>
-          <h1>Star Wars Characters</h1>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            data && (
-              <>
-                <h2> {data.count} characters</h2>
-                <ul>
-                  {data.results.map((character: Character) => (
-                    <li key={character.name}>
-                      <h2>{character.name}</h2>
-                      <p>Height: {character.height}</p>
-                      <p>Mass: {character.mass}</p>
-                      <p>Hair Color: {character.hair_color}</p>
-                      <p>Eye Color: {character.eye_color}</p>
-                      <p>Skin Color {character.skin_color}</p>
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={getNextPage}>Next</button>
-              </>
-            )
-          )}
-        </header>
-      </div>
-    </>
+    <div className="m-5 text-center">
+      <h1>Star Wars Characters</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        data && (
+          <div className="w-full">
+            <h2> {data.count} characters</h2>
+            <ul className="flex flex-wrap justify-center m-10">
+              {data.results.map((character: Character) => (
+                <li key={character.name}>
+                  <h2>{character.name}</h2>
+                  <p>Height: {character.height}</p>
+                  <p>Mass: {character.mass}</p>
+                  <p>Hair Color: {character.hair_color}</p>
+                  <p>Eye Color: {character.eye_color}</p>
+                  <p>Skin Color: {character.skin_color}</p>
+                </li>
+              ))}
+            </ul>
+            <button onClick={getNextPage}>Next</button>
+          </div>
+        )
+      )}
+    </div>
   );
 };
 

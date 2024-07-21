@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom";
 import { FC } from "react";
 
 const HomePage: FC = () => {
   return (
-    <div>
-      <Link to="/characters">See Characters</Link>
-      <Link to="/ships">See Ships</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link>
-      <h1>Home Page</h1>
+    <div className="text-center m-8">
+      <h1 className="font-bold text-5xl">Home Page</h1>
+      <p className="m-8">
+        Welcome! See more about Star Wars's Characters and StarShips here!
+      </p>
     </div>
   );
 };
