@@ -27,11 +27,18 @@ const ShipDetail = () => {
   const { id } = useParams();
   const [ship, setShip] = useState<Ship>();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async (url: string) => {
       const response = await fetch(url);
-      const data = await response.json();
+      if (!response.ok) {
+        setLoading(false);
+        // display error message
+        setError(true);
+        throw new Error("Network response was not ok");
+      }
+      const data: Ship = await response.json();
       setShip(data);
       setLoading(false);
     };
@@ -45,6 +52,8 @@ const ShipDetail = () => {
         <Link to="/ships">List All StarShips</Link>
 
         <h1>ShipDetail</h1>
+
+        {error && <p>There was an with your requisition! Please try again</p>}
 
         {loading ? (
           <p>Loading...</p>
