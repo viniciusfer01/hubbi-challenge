@@ -3,6 +3,19 @@ import { Form, NavLink, useRouteLoaderData } from "react-router-dom";
 const MainNavigation = () => {
   const token = useRouteLoaderData("root");
 
+  const logoutButtonRender = () => {
+    if (token) {
+      return (
+        <li>
+          <Form action="/logout" method="post">
+            <button>Logout</button>
+          </Form>
+        </li>
+      );
+    }
+    return null;
+  };
+
   return (
     <header className="p-8 bg-battleship-gray text-3xl font-sans text-yellow">
       <nav>
@@ -59,13 +72,7 @@ const MainNavigation = () => {
               </li>
             </>
           )}
-          {token && (
-            <li>
-              <Form action="/logout" method="post">
-                <button>Logout</button>
-              </Form>
-            </li>
-          )}
+          {logoutButtonRender()}
         </ul>
       </nav>
     </header>

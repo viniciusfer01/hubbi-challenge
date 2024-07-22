@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type Ship = {
   name: string;
@@ -34,7 +34,6 @@ const Ships = () => {
   const [data, setData] = useState<apiShipData>();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const token = useRouteLoaderData("root");
 
   useEffect(() => {
     const fetchData = async (url: string) => {
