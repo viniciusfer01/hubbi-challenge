@@ -1,7 +1,15 @@
-import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
+import { Form, useActionData, useNavigation } from "react-router-dom";
+
+type loginDataFeedback = {
+  errors: {
+    email: string | undefined;
+    password: string | undefined;
+  };
+  message: string | undefined;
+};
 
 const Login = () => {
-  const data = useActionData();
+  const data = useActionData() as loginDataFeedback;
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   return (
@@ -41,32 +49,3 @@ const Login = () => {
 };
 
 export default Login;
-
-export async function action({ request }) {
-  const data = await request.formData();
-  const authData = {
-    email: data.get("email"),
-    password: data.get("password"),
-  };
-
-  const response = await fetch("http://localhost:8080/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(authData),
-  });
-
-  if (response.status === 422 || response.status === 401) {
-    return response;
-  } else if (!response.ok) {
-    throw new Error("Failed to login");
-  }
-
-  const resData = await response.json();
-  const token = resData.token;
-
-  localStorage.setItem("token", token);
-
-  return redirect("/");
-}

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getAuthToken } from "../util/auth";
-import { FC } from "react";
 
 type Character = {
   name: string;
@@ -23,7 +22,7 @@ type Character = {
   edited: string;
 };
 
-const characterDetails = () => {
+const CharacterDetails = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState<Character>();
   const [loading, setLoading] = useState(true);
@@ -50,7 +49,7 @@ const characterDetails = () => {
       setLoading(false);
     };
 
-    fetchData(`http://localhost:8080/characters/${id}`);
+    fetchData(`https://hubbi-challenge-hma2.onrender.com/characters/${id}`);
   }, [id]);
 
   return (
@@ -95,4 +94,4 @@ const characterDetails = () => {
   );
 };
 
-export default characterDetails;
+export default CharacterDetails;

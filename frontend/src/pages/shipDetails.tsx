@@ -51,7 +51,7 @@ const ShipDetail = () => {
       setLoading(false);
     };
 
-    fetchData(`http://localhost:8080/ships/${id}`);
+    fetchData(`https://hubbi-challenge-hma2.onrender.com/ships/${id}`);
   }, [id]);
 
   return (
