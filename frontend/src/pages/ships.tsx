@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 
 type Ship = {
   name: string;
@@ -34,6 +34,7 @@ const Ships = () => {
   const [data, setData] = useState<apiShipData>();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const token = useRouteLoaderData("root");
 
   useEffect(() => {
     const fetchData = async (url: string) => {
@@ -73,8 +74,12 @@ const Ships = () => {
                       (ship.id = ship.url.split("/")[5]),
                       (
                         <li key={ship.name}>
-                          <h2>{ship.name}</h2> <p>{ship.url}</p>
-                          <Link to={`/ships/${ship.id}`}>See Ship Details</Link>
+                          <h2>{ship.name}</h2>
+                          {token && (
+                            <Link to={`/ships/${ship.id}`}>
+                              See Ship Details
+                            </Link>
+                          )}
                         </li>
                       )
                     )

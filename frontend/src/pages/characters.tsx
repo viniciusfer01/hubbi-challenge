@@ -52,26 +52,36 @@ const Characters = () => {
 
   return (
     <div className="m-5 text-center">
-      <h1>Star Wars Characters</h1>
+      <h1 className="font-extrabold text-4xl text-gun-metal">
+        Star Wars Characters
+      </h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
         data && (
-          <div className="w-full">
-            <h2> {data.count} characters</h2>
-            <ul className="flex flex-wrap justify-center m-10">
+          <div>
+            <p> {data.count} characters</p>
+            <ul className=" m-10   text-yellow ">
               {data.results.map((character: Character) => (
-                <li key={character.name}>
-                  <h2>{character.name}</h2>
-                  <p>Height: {character.height}</p>
-                  <p>Mass: {character.mass}</p>
-                  <p>Hair Color: {character.hair_color}</p>
-                  <p>Eye Color: {character.eye_color}</p>
-                  <p>Skin Color: {character.skin_color}</p>
+                <li
+                  key={character.name}
+                  className="w-full p-4 bg-gun-metal rounded-md m-4 text-ash-gray flex space-x-2 justify-between items-center"
+                >
+                  <p className="text-2xl font-extrabold text-yellow">
+                    {character.name}
+                  </p>
+                  <button className="bg-ash-gray text-gun-metal rounded-xl p-2 hover:opacity-90">
+                    See details...
+                  </button>
                 </li>
               ))}
             </ul>
-            <button onClick={getNextPage}>Next</button>
+            <button
+              className="bg-battleship-gray px-10 py-4 rounded-lg text-yellow hover:text-gun-metal hover:opacity-90"
+              onClick={getNextPage}
+            >
+              Next
+            </button>
           </div>
         )
       )}

@@ -3,9 +3,11 @@ import MainNavigation from "../components/MainNavigation";
 
 const RootLayout = () => {
   return (
-    <div className="bg-black h-screen text-yellow-300">
+    <div className="bg-gun-metal h-full">
       <MainNavigation />
-      <Outlet />
+      <div className="h-fit max-w-5xl my-12 m-auto text-center p-8 max-h-3xl bg-ash-gray rounded-md">
+        <Outlet />
+      </div>
     </div>
   );
 };
