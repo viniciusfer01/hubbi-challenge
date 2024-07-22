@@ -10,35 +10,32 @@ const {
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
-  console.log(req.token);
-  try {
-    const events = await getAll();
-    res.json({ events: events });
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.get("/characters", async (req, res, next) => {
-  const data = req.body;
-  console.log(data);
-  console.log(req.token);
-  try {
-    const charData = await fetch("https://swapi.dev/api/people/");
-    res.json({ charData });
-  } catch (error) {
-    next(error);
-  }
+  res.json({ message: "Characters" });
+  // const data = req.body;
+  // console.log(data);
+  // console.log(req.token);
+  // try {
+  //   const charData = await fetch("https://swapi.dev/api/people/");
+  //   res.json({ charData });
+  // } catch (error) {
+  //   next(error);
+  // }
 });
 
 router.use(checkAuth);
 
 router.get("/ships/:id", async (req, res, next) => {
+  const shipId = req.params.id;
+
   console.log(req.token);
   try {
-    const shipData = await fetch("https://swapi.dev/api/ships/");
-    res.json({ shipData });
+    const shipData = (await fetch(`https://swapi.dev/api/starships/${shipId}`))
+      .json()
+      .then((data) => {
+        console.log(data);
+        res.send(data);
+      });
   } catch (error) {
     next(error);
   }

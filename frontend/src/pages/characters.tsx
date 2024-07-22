@@ -39,7 +39,7 @@ const Characters = () => {
       setLoading(false);
     };
 
-    fetchData(`https://localhost:8080/characters?page=${page}`);
+    fetchData(`https://swapi.dev/api/people/?page=${page}`);
   }, [page]);
 
   const getNextPage = () => {

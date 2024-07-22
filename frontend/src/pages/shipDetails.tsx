@@ -51,7 +51,7 @@ const ShipDetail = () => {
       setLoading(false);
     };
 
-    fetchData(`https://localhost:8080/starships/${id}`);
+    fetchData(`http://localhost:8080/ships/${id}`);
   }, [id]);
 
   return (
