@@ -1,5 +1,30 @@
 # This is a challenge for a job application @Hubbi
 
+## How to try the project
+
+- Visit the deployed project [here](https://hubbi-challenge.vercel.app/)
+
+## How to run the project
+
+- clone the project
+- cd backend
+- run `npm install`
+- run `npm start`
+
+- cd frontend
+- run `npm install`
+- run `npm run dev`
+
+## The API
+
+The API is a simple express server that serves a list of ships. The API has a few endpoints:
+"/" - serves a homepage
+"/login" - serves a login page
+"/ships" - serves a list of ships
+"/ships/:id" - serves a single ship (restricted to authenticated users)
+"/characters" - serves a list of characters
+"/characters/:id" - serves a single character (restricted to authenticated users)
+
 ## The challenge
 
 Create a simple React application that fetches data from an API and displays it. The application should have the following features:
