@@ -41,6 +41,22 @@ router.get("/ships/:id", async (req, res, next) => {
   }
 });
 
+router.get("/characters/:id", async (req, res, next) => {
+  const charId = req.params.id;
+
+  console.log(req.token);
+  try {
+    const charData = (await fetch(`https://swapi.dev/api/people/${charId}`))
+      .json()
+      .then((data) => {
+        console.log(data);
+        res.send(data);
+      });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // router.get("/ships/:id", async (req, res, next) => {
 //   console.log(req.token);
 //   const data = req.body;

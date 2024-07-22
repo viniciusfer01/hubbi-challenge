@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div>
       <Form method="post">
-        <h1>Login</h1>
+        <h1 className="font-extrabold text-4xl text-gun-metal p-10">Login</h1>
         {data && data.errors && (
           <ul>
             {Object.values(data.errors).map((err) => (
@@ -16,11 +16,23 @@ const Login = () => {
           </ul>
         )}
         {data && data.message && <p>{data.message}</p>}
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button disabled={isSubmitting}>
+        <div className="block p-2 ">
+          <label htmlFor="email" className="p-2">
+            Email
+          </label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div className="block p-2">
+          <label htmlFor="password" className="p-2">
+            Password
+          </label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <button
+          className="bg-battleship-gray my-6 text-gun-metal rounded-xl py-2 px-8 hover:opacity-90"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? "Submitting" : "Login"}
         </button>
       </Form>

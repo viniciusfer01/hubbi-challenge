@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Characters from "./pages/characters";
+import CharacterDetail from "./pages/characterDetails";
 import Ships from "./pages/ships";
 import ShipDetail from "./pages/shipDetails";
 import HomePage from "./pages/Home";
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/characters", element: <Characters /> },
+      {
+        path: "/characters/:id",
+        element: <CharacterDetail />,
+        loader: checkAuthLoader,
+      },
       { path: "/ships", element: <Ships /> },
       { path: "/ships/:id", element: <ShipDetail />, loader: checkAuthLoader },
       { path: "/login", element: <Login />, action: loginAction },

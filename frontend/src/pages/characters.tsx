@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 type Character = {
   name: string;
@@ -17,6 +18,7 @@ type Character = {
   url: string;
   created: string;
   edited: string;
+  id: string | undefined;
 };
 
 type apiCharacterData = {
@@ -62,19 +64,26 @@ const Characters = () => {
           <div>
             <p> {data.count} characters</p>
             <ul className=" m-10   text-yellow ">
-              {data.results.map((character: Character) => (
-                <li
-                  key={character.name}
-                  className="w-full p-4 bg-gun-metal rounded-md m-4 text-ash-gray flex space-x-2 justify-between items-center"
-                >
-                  <p className="text-2xl font-extrabold text-yellow">
-                    {character.name}
-                  </p>
-                  <button className="bg-ash-gray text-gun-metal rounded-xl p-2 hover:opacity-90">
-                    See details...
-                  </button>
-                </li>
-              ))}
+              {data.results.map(
+                (character: Character) => (
+                  (character.id = character.url.split("/")[5]),
+                  (
+                    <li
+                      key={character.name}
+                      className="w-full p-4 bg-gun-metal rounded-md m-4 text-ash-gray flex space-x-2 justify-between items-center"
+                    >
+                      <p className="text-2xl font-extrabold text-yellow">
+                        {character.name}
+                      </p>
+                      <button className="bg-ash-gray text-gun-metal rounded-xl p-2 hover:opacity-90">
+                        <Link to={`/characters/${character.id}`}>
+                          See details...
+                        </Link>
+                      </button>
+                    </li>
+                  )
+                )
+              )}
             </ul>
             <button
               className="bg-battleship-gray px-10 py-4 rounded-lg text-yellow hover:text-gun-metal hover:opacity-90"
