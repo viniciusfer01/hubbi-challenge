@@ -10,7 +10,7 @@ const cors = require("cors");
 
 // CORS options
 const corsOptions = {
-  origin: "http://localhost:5173", // Allow only the React app to access
+  origin: "https://hubbi-challenge.vercel.app", // Allow only the React app to access
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
