@@ -3,7 +3,7 @@ import Characters from "../pages/Characters";
 import ErrorPage from "../pages/Error";
 import HomePage from "../pages/Home";
 import Login from "../pages/Login";
-import RootLayout from "../pages/Root";
+import RootLayout from "../components/Layout";
 import ShipDetail from "../pages/shipDetails";
 import Ships from "../pages/ships";
 import Signup from "../pages/Signup";

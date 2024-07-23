@@ -13,6 +13,8 @@ export default {
       "battleship-gray": "#808f87",
       "ash-gray": "#afd0bf",
       "gun-metal": "#1f2937",
+      black: "#000",
+      white: "#fff",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
@@ -21,6 +23,9 @@ export default {
     extend: {
       borderRadius: {
         "4xl": "2rem",
+      },
+      backgroundImage: {
+        stars: "url('src/assets/bg.jpg')",
       },
     },
   },

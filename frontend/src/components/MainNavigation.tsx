@@ -6,30 +6,31 @@ const MainNavigation = () => {
   const logoutButtonRender = () => {
     if (token) {
       return (
-        <li>
-          <Form action="/logout" method="post">
-            <button>Logout</button>
-          </Form>
-        </li>
+        <Form action="/logout" method="post">
+          <button>Logout</button>
+        </Form>
       );
     }
     return null;
   };
 
   return (
-    <header className="p-8 bg-battleship-gray text-3xl font-sans text-yellow">
+    <header className="w-full bg-black p-8 ">
       <nav>
-        <ul className="flex justify-between gap-4 space-x-3">
-          <li>
-            <NavLink
-              className={({ isActive }) => (isActive ? "underline" : undefined)}
-              to="/"
-              end
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
+        <div className="flex justify-between gap-4 space-x-3 text-yellow text-4xl items-center">
+          <NavLink
+            className={({ isActive }) => (isActive ? "underline" : undefined)}
+            to="/"
+            end
+          >
+            <img
+              src="src/assets/Star_Wars_Logo.svg"
+              alt="Star Wars Logo"
+              className="h-16 m-0 p-0"
+            />
+          </NavLink>
+
+          <div className="flex space-x-4">
             <NavLink
               className={({ isActive }) => (isActive ? "underline" : undefined)}
               to="/characters"
@@ -37,8 +38,7 @@ const MainNavigation = () => {
             >
               Characters
             </NavLink>
-          </li>
-          <li>
+
             <NavLink
               className={({ isActive }) => (isActive ? "underline" : undefined)}
               to="/ships"
@@ -46,10 +46,9 @@ const MainNavigation = () => {
             >
               Ships
             </NavLink>
-          </li>
-          {!token && (
-            <>
-              <li>
+
+            {!token && (
+              <>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "underline" : undefined
@@ -59,8 +58,7 @@ const MainNavigation = () => {
                 >
                   Login
                 </NavLink>
-              </li>
-              <li>
+
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "underline" : undefined
@@ -69,11 +67,11 @@ const MainNavigation = () => {
                 >
                   Signup
                 </NavLink>
-              </li>
-            </>
-          )}
-          {logoutButtonRender()}
-        </ul>
+              </>
+            )}
+            {logoutButtonRender()}
+          </div>
+        </div>
       </nav>
     </header>
   );

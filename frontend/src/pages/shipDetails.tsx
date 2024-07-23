@@ -57,15 +57,15 @@ const ShipDetail = () => {
   return (
     <>
       <div className="m-5 text-center">
-        <h1 className="font-extrabold text-4xl text-gun-metal">Ship Detail</h1>
+        <h1 className="font-extrabold text-4xl text-yellow">Ship Detail</h1>
 
         {error && <p>There was an with your requisition! Please try again</p>}
 
         {loading ? (
-          <p>Loading...</p>
+          <p text-yellow>Loading...</p>
         ) : (
           ship && (
-            <div className="m-10 grid grid-rows-3 text-ash-gray p-6 bg-gun-metal rounded-md  space-x-2  items-center">
+            <div className="m-10 grid grid-rows-3 text-white p-6 rounded-md text-left space-x-2">
               <h2 className="font-bold text-2xl text-yellow">{ship.name}</h2>
               <p>Model: {ship.model}</p>
               <p>Class: {ship.starship_class}</p>
@@ -82,7 +82,7 @@ const ShipDetail = () => {
             </div>
           )
         )}
-        <button className="bg-battleship-gray px-10 py-4 rounded-lg text-yellow hover:text-gun-metal hover:opacity-90">
+        <button className="bg-white px-6 py-4 rounded-lg text-black font-extrabold hover:text-gun-metal hover:opacity-90">
           <Link to="/ships">Back to Ships</Link>
         </button>
       </div>

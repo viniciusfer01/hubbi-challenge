@@ -56,29 +56,27 @@ const Ships = () => {
 
   return (
     <>
-      <div className="m-5 text-center">
-        <h1 className="font-extrabold text-4xl text-gun-metal">
-          Star Wars Ships
-        </h1>
+      <div className="text-center">
+        <h1 className="font-extrabold text-4xl text-yellow">Star Wars Ships</h1>
         {loading ? (
-          <p>Loading...</p>
+          <p className="text-yellow">Loading...</p>
         ) : (
           data && (
             <>
-              <p> {data.count} ships</p>
-              <ul className=" m-10   text-yellow ">
+              <p className="text-yellow"> {data.count} ships</p>
+              <ul className=" m-10 text-yellow">
                 {data.results.map(
                   (ship: Ship) => (
                     (ship.id = ship.url.split("/")[5]),
                     (
                       <li
                         key={ship.name}
-                        className="w-full p-4 bg-gun-metal rounded-md m-4 text-ash-gray flex space-x-2 justify-between items-center"
+                        className="w-full p-4 rounded-md m-4 text-ash-gray flex space-x-2 justify-between items-center"
                       >
                         <p className="text-2xl font-extrabold text-yellow">
                           {ship.name}
                         </p>
-                        <button className="bg-ash-gray text-gun-metal rounded-xl p-2 hover:opacity-90">
+                        <button className="bg-white font-bold px-4 text-gun-metal rounded-xl p-2 hover:opacity-90">
                           <Link to={`/ships/${ship.id}`}>
                             See Ship Details...
                           </Link>
@@ -88,8 +86,9 @@ const Ships = () => {
                   )
                 )}
               </ul>
+
               <button
-                className="bg-battleship-gray px-10 py-4 rounded-lg text-yellow hover:text-gun-metal hover:opacity-90"
+                className="bg-white px-6 py-4 rounded-lg text-black font-extrabold hover:text-gun-metal hover:opacity-90"
                 onClick={getNextPage}
               >
                 Next
