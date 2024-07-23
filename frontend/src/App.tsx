@@ -1,40 +1,5 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Characters from "./pages/Characters";
-import CharacterDetail from "./pages/CharacterDetails";
-import Ships from "./pages/ships";
-import ShipDetail from "./pages/shipDetails";
-import HomePage from "./pages/Home";
-import Login from "./pages/Login";
-import RootLayout from "./pages/Root";
-import ErrorPage from "./pages/Error";
-import Signup from "./pages/Signup";
-import { action as authAction } from "./util/action";
-import { action as logoutAction } from "./pages/Logout";
-import { checkAuthLoader, tokenLoader } from "./util/auth";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    errorElement: <ErrorPage />,
-    id: "root",
-    loader: tokenLoader,
-    children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/characters", element: <Characters /> },
-      {
-        path: "/characters/:id",
-        element: <CharacterDetail />,
-        loader: checkAuthLoader,
-      },
-      { path: "/ships", element: <Ships /> },
-      { path: "/ships/:id", element: <ShipDetail />, loader: checkAuthLoader },
-      { path: "/login", element: <Login />, action: authAction },
-      { path: "/signup", element: <Signup />, action: authAction },
-      { path: "logout", action: logoutAction },
-    ],
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/routes";
 
 function App() {
   return <RouterProvider router={router} />;
