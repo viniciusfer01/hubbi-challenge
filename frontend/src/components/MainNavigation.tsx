@@ -24,7 +24,7 @@ const MainNavigation = () => {
             end
           >
             <img
-              src="src/assets/Star_Wars_Logo.svg"
+              src="Star_Wars_Logo.svg"
               alt="Star Wars Logo"
               className="h-16 m-0 p-0"
             />

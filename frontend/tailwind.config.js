@@ -25,7 +25,7 @@ export default {
         "4xl": "2rem",
       },
       backgroundImage: {
-        stars: "url('src/assets/bg.jpg')",
+        stars: "url('/bg.jpg')",
       },
     },
   },
